@@ -1,0 +1,556 @@
+@import "./reset.css";
+@import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mozilla+Text:wght@200..700&family=Nata+Sans:wght@100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+/*
+  font-family: "Afacad", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+*/
+
+:root{
+
+}
+
+html, body{
+   font-family: "Afacad", sans-serif;
+   font-optical-sizing: auto;
+}
+
+.container{
+    margin: 0 auto; /*выравнивание по центру*/
+    padding: 0 15px;
+    max-width: 1200px;
+}
+.nav{
+    padding: 15px 0; /*1 - сверху и снизу, 2 - слева и справа*/
+    background-color: #022140;
+    color: #ffff;
+}
+.nav-row{
+    display: flex; 
+    justify-content: space-between; /*равномерное распределение между элементами*/
+    align-items: center; /*выравнивание по вертикали*/
+    column-gap: 20px; /*отступ между колонками*/
+    row-gap: 20px; /*перенос при адаптивке*/
+    flex-wrap: wrap; /*перенос при адаптивке*/
+}
+.logo{
+    width: 150px;
+}
+
+.nav-list{
+    display: flex;
+    align-items: center;
+    column-gap: 40px;
+    font-size: 14px;
+}
+
+.nav-list_link{
+    color: #fff;
+    transition: color 0.3s ease;
+}
+.nav-list_link:hover {
+    color: #FFFF00;
+    opacity: 0.8;  
+}
+.nav-list__link--active{
+    position: relative;
+    color: #FFFF00;
+}
+.nav-list__link--active::before{
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 100%;
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: #FFFF00;
+}
+
+.header {
+  background-color: antiquewhite;
+  color: #000000;
+  overflow: hidden;
+  position: relative;
+  padding: 10px 0;
+}
+
+.marquee-infinite {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-content {
+  display: inline-block;
+  animation: marquee-infinite 20s linear infinite;
+}
+
+.marquee-content h1 {
+  display: inline-block;
+  padding-right: 5px; /* Расстояние между текстами */
+  margin: 0;
+}
+
+@keyframes marquee-infinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-30%); /* Сдвигаем на половину ширины контента */
+  }
+}
+
+.block_1 {
+    max-width: 1200px;
+    padding: 20px;
+    justify-content: center;
+    display: flex;
+    margin: 0 auto;
+    gap: 10px;
+    align-items: stretch;
+    
+}
+
+.catalog{ 
+    flex: 0 0 300px;   
+    background: #022140;
+    border-radius: 8px;
+    width: 400px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 15px;
+    height: fit-content;
+}
+
+.catalog_tovary {
+    font-weight: 900;
+    color: #ffffff;
+    padding: 10px 8px;
+}
+
+.catalog_list {
+    color: #ffffff;
+}
+
+.catalog_list > li {
+    padding: 8px;
+    cursor: pointer;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);   
+}
+
+/* Подсветка при наведении на пункт */
+.catalog_list > li:hover {
+    color: #FFFF00;
+}
+
+.catalog_list > li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* Стили для выпадающего меню */
+.submenu {
+    z-index: 1000;
+    display: none; /* По умолчанию скрыто */
+    list-style: none; /* Убираем маркеры списка */
+    position: absolute; /* Абсолютное позиционирование */
+    left: 100%; /* Позиционируется справа от родителя */
+    top: 0; /* Выравнивание по верху родителя */
+    width: 250px; /* Фиксированная ширина */
+    background: #ffffff; /* Белый фон */
+    border-radius: 8px 8px; /* Скругление правых углов */
+    box-shadow: 2px 2px 5px rgba(0.1,0.1,0.1,0.1); /* Тень для эффекта "всплывания" */
+}
+
+.catalog-item:hover .submenu {
+    max-height: 500px; 
+    transition: max-height 0.5s ease-in;
+}
+
+.catalog_list > li:hover .submenu {
+    display: block; /* Показываем подменю */
+}
+
+.submenu li {
+    padding: 8px 15px; 
+    color: #333;
+    border-bottom: 1px solid #eee;
+    transition: all 0.2s ease;
+    border-radius: 8px 8px;
+    
+}
+
+.submenu li:hover { /*при наведении на подпункт подменю*/
+    background-color: #f0f0f0;
+    color: #022140;
+    border-radius: 8px 8px;
+    
+}
+
+
+
+
+.slider-container {
+    position: relative;
+    height: 410px;
+    overflow: hidden;
+    border-radius: 8px;
+    
+}
+.slider{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.fixed-text-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.highlight{
+    color: #FFFF00;
+}
+
+.slide-content {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    pointer-events: auto; 
+}
+
+.slide-title {
+    margin-top: 25px;
+    font-size: 25px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.slide-text {
+    font-size: 14px;
+    padding: 50px;
+    line-height: 1.5;
+    text-align: match-parent;
+}
+
+
+
+/* Стили для слайдера */
+
+.slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease;
+   
+}
+
+.slide {
+    min-width: 100%;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+    display: block;
+}
+
+
+.buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 20px;
+    z-index: 20; 
+}
+
+.button {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 21; 
+    position: relative; 
+}
+
+.button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+h4 {
+    font-size: 23px;
+    color: #003C98;
+    text-align: center;
+    font-weight: 600;
+    opacity: 1;
+    padding-bottom: 25px;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.block_2 {
+    opacity: 0;
+    transform: translateY(30px);
+    padding: 20px;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.block_2.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.electro_in_maykop {
+    opacity: 0;
+    transform: translateX(0px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.electro_in_maykop.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.preimushestva {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.preimushestvo {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.preimushestvo.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.preimushestvo img {
+    max-width: 100%;
+    padding: 15px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0.1,0.1,0.1,0.1);
+}
+.preimushestvo:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+
+.block_3 {
+    opacity: 0;
+    transform: translateY(30px);
+    padding: 20px;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.block_3.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.zagolovok {
+    opacity: 0;
+    transform: translateX(0px);
+    transition:  transform 0.8s ease;
+}
+
+.zagolovok.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.blok_1 {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* Сетка специализаций */
+.spec {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.spec li {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden; /* Важно для скрытия выходящего за границы контента */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    aspect-ratio: 1 / 1;
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.spec li.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.spec li:hover {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.spec img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(70%);
+}
+
+/* Текст поверх изображения */
+.overlay-text {
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 33, 64, 0.8);
+    color: white;
+    padding: 15px;
+    height: 130px;
+    transform: translateY(131px);
+    transition: transform 0.3s ease;
+    box-sizing: border-box;
+}
+
+.spec li:hover .overlay-text {
+    transform: translateY(0);
+}
+
+.overlay-text h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    width: 100%; /* Добавлено для лучшего выравнивания */
+}
+
+.overlay-text p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+    width: 100%; /* Добавлено для лучшего выравнивания */
+}
+
+/*.block_4 {
+    opacity: 0;
+    transform: translateY(30px);
+    padding: 20px;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.block_4.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.name_br {
+    opacity: 0;
+    transform: translateX(0px);
+    transition:  transform 0.8s ease;
+}
+
+.name_br.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+*/
+
+.stroke {
+  display: flex;
+  width: 100vw;
+  align-items: center;
+  
+  max-width: 7000px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.stroke__item {
+  
+  font-size: 12px;
+  
+  
+  text-transform: uppercase;
+  animation: running-animation 20s linear infinite;
+  white-space: nowrap;
+}
+
+@keyframes running-animation {
+  0% {
+    transform: translateZ(0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content; /* Ширина по содержимому */
+  animation: scroll 30s linear infinite;
+}
+
+.marquee-track img {
+  height: 60px; /* Фиксированная высота картинок */
+  width: auto; /* Сохраняем пропорции */
+  margin: 0 30px; /* Отступы между картинками */
+  object-fit: contain; /* Сохраняем пропорции */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Сдвигаем на половину ширины */
+  }
+}
